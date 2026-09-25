@@ -1,4 +1,7 @@
 name: Upload sourcemaps
+
+# Disabled on this fork. Upstream runs this on every push to main outside
+# every-app/open-seo, and the job fails here without PostHog secrets.
 on:
   push:
     branches:
@@ -8,7 +11,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   upload:
-    if: github.repository != 'every-app/open-seo'
+    if: false
     runs-on: ubuntu-latest
     env:
       POSTHOG_SOURCEMAPS: "true"
